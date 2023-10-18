@@ -1,0 +1,39 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}List of Students{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="mt-4">List of Students</h1>
+       
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Classroom</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                    <tr>
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.email }}</td>
+                        <td>{{ student.age }}</td>
+                        <td>{{ student.classroom }}</td>
+                        <td>
+                            <a href="{{ path('edit_student', {id: student.id}) }}" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="{{ path('remove_student', {id: student.id}) }}" class="btn btn-danger btn-sm">Remove</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('add_students') }}" class="btn btn-success">Add Student</a>
+{% endblock %}

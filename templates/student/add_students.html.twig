@@ -1,0 +1,17 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Student{% endblock %}
+
+{% block body %}
+    <h1>Add Student</h1>
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.age) }}
+    {{ form_row(form.classroom) }}
+    <button type="submit" class="btn btn-primary">Add</button>
+    {{ form_end(form) }}
+    <a href="{{ path('list_students') }}">Back to Students</a>
+{% endblock %}
